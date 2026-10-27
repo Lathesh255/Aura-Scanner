@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-purple: #b026ff;
+  --color-neon-pink: #ff2a85;
+  --color-neon-blue: #00f0ff;
+  --color-neon-green: #39ff14;
+  --color-dark-bg: #050505;
+  --color-dark-surface: #0a0a0c;
+  --color-glass: rgba(20, 20, 25, 0.6);
+  
+  --font-sans: "Inter", var(--font-geist-sans), Arial, sans-serif;
+  --font-mono: var(--font-geist-mono);
+}
+
+:root {
+  --background: #050505;
+  --foreground: #f4f4f5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Cyberpunk Glassmorphism */
+.glass {
+  background: rgba(18, 18, 24, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel {
+  background: rgba(12, 12, 18, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(176, 38, 255, 0.15); /* subtle purple border */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(176, 38, 255, 0.2);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+  background: rgba(176, 38, 255, 0.1);
+  border-color: #b026ff;
+  outline: none;
+  box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+}
+
+/* Neon Text & Shadows */
+.text-neon-purple {
+  color: #b026ff;
+  text-shadow: 0 0 10px rgba(176, 38, 255, 0.6), 0 0 20px rgba(176, 38, 255, 0.4);
+}
+
+.text-neon-blue {
+  color: #00f0ff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6), 0 0 20px rgba(0, 240, 255, 0.4);
+}
+
+.bg-neon-glow {
+  box-shadow: 0 0 20px rgba(176, 38, 255, 0.5), inset 0 0 10px rgba(176, 38, 255, 0.2);
+}
+
+.border-neon {
+  border-color: #b026ff;
+  box-shadow: 0 0 10px rgba(176, 38, 255, 0.3);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a35;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #b026ff;
+}
+
+/* Particle Animation (Simple CSS fallback) */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  background: rgba(176, 38, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: float 10s linear infinite;
+}
+
+/* Safe entrance CSS animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+

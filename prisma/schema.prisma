@@ -1,0 +1,15 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Image {
+  id        String   @id @default(cuid())
+  url       String
+  tags      String   // Storing JSON string array
+  createdAt DateTime @default(now())
+}
